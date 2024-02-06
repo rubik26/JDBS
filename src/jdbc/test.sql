@@ -1,0 +1,1 @@
+SELECT * FROM product VALUES(1, Apple Vision Pro, 3500)
