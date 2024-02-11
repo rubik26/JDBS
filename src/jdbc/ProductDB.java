@@ -18,6 +18,7 @@ public class ProductDB {
             createProduct(connection, phone);
             createProduct(connection, laptop);
             updatePrice(connection);
+            deleteProduct(connection);
         }catch (SQLException e){
             throw new SQLException(e);
         }
@@ -55,6 +56,16 @@ public class ProductDB {
             String updatePrice = "UPDATE product SET Price = Price + 5000 WHERE ProductName ='Apple Vision Pro'";
             PreparedStatement preparedStatement = connection.prepareStatement(updatePrice);
             preparedStatement.executeUpdate(updatePrice);
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+        return 0;
+    }
+     protected static int deleteProduct(Connection connection) throws SQLException{
+        try{
+            String deleteProduct = "DELETE FROM product WHERE productName = 'Samsung Galaxy s23'";
+            Statement statement = connection.createStatement();
+            statement.execute(deleteProduct);
         }catch (Exception e){
             System.out.println(e.getStackTrace());
         }
